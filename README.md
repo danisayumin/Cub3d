@@ -1,3 +1,3 @@
 # Cub3d
 ## (👍≖‿‿≖)👍 👍(≖‿‿≖👍)
-Wolfenstein prototype
+Wolfenstein 3D prototype
