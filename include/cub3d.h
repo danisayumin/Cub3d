@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/14 00:16:41 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/17 23:28:52 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,34 @@ typedef struct s_vector
 	double			y;
 }					t_vector;
 
+typedef struct s_draw_wall
+{
+	int				tex_x;
+	int				line_height;
+	int				draw_start;
+	int				draw_end;
+	int				tex_y;
+	int				color;
+	double			wall_x;
+	double			step;
+	double			tex_pos;
+}					t_draw_wall;
+
+typedef struct s_ray_calc
+{
+	int				x;
+	int				side;
+	double			camera_x;
+	double			perp_wall_dist;
+	t_vector		ray;
+	t_vector		delta_dist;
+	t_vector		side_dist;
+	t_vector		step;
+	t_vector		map;
+	t_vector		map_point;
+	t_vector		dir_point;
+}					t_ray_calc;
+
 typedef struct s_cub3d
 {
 	mlx_t			*mlx_ptr;
@@ -69,12 +97,31 @@ typedef struct s_cub3d
 	t_vector		plane;
 }					t_cub3d;
 
-
 //init
 void				initialize(t_cub3d *cub3d);
 void				start_params(t_cub3d *cub3d);
 
 //utils
 size_t				get_file_size(char *map_file);
+
+// utils2
+void				free_for_finish(t_cub3d *cub3d);
+void				err_exit(char *str);
+void				close_err_exit(int fd, char *str);
+void				close_free_err_exit(int fd, char **arr, char *err_message);
+void				free_texture(t_cub3d *cub3d);
+void				free_map_and_texture(t_cub3d *cub3d);
+
+// map
+void				read_map(t_cub3d *cub3d, char *map_file);
+void				get_player_position(t_cub3d *cub3d, char *line,
+						size_t current_y);
+void				normalize_map(t_cub3d *cub3d);
+
+// load
+void				load_texture(t_cub3d *cub3d, mlx_texture_t **texture,
+						int fd, char **words);
+void				load_color(t_cub3d *cub3d, int64_t *color, int fd,
+						char **words);
 
 #endif

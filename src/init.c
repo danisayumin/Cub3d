@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/14 00:03:31 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/17 22:34:24 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 void	initialize(t_cub3d *cub3d)
 {
 	cub3d->mlx_ptr = mlx_init(WIDTH, HEIGHT, GAME_NAME, false);
-	// if (cub3d->mlx_ptr == NULL)
-	// {
-	// 	puts(mlx_strerror(mlx_errno));
-	// 	exit(EXIT_FAILURE);
-	// }
-	// cub3d->image = mlx_new_image(cub3d->mlx_ptr, WIDTH, HEIGHT);
-	// if (cub3d->image == NULL)
-	// {
-	// 	mlx_close_window(cub3d->mlx_ptr);
-	// 	puts(mlx_strerror(mlx_errno));
-	// 	exit(EXIT_FAILURE);
-	// }
-	// if (mlx_image_to_window(cub3d->mlx_ptr, cub3d->image, 0, 0) == -1)
-	// {
-	// 	mlx_close_window(cub3d->mlx_ptr);
-	// 	puts(mlx_strerror(mlx_errno));
-	// 	exit(EXIT_FAILURE);
-	// }
+	if (cub3d->mlx_ptr == NULL)
+	{
+		puts(mlx_strerror(mlx_errno));
+		exit(EXIT_FAILURE);
+	}
+	cub3d->image = mlx_new_image(cub3d->mlx_ptr, WIDTH, HEIGHT);
+	if (cub3d->image == NULL)
+	{
+		mlx_close_window(cub3d->mlx_ptr);
+		puts(mlx_strerror(mlx_errno));
+		exit(EXIT_FAILURE);
+	}
+	if (mlx_image_to_window(cub3d->mlx_ptr, cub3d->image, 0, 0) == -1)
+	{
+		mlx_close_window(cub3d->mlx_ptr);
+		puts(mlx_strerror(mlx_errno));
+		exit(EXIT_FAILURE);
+	}
 }
 
 void	start_params(t_cub3d *cub3d)

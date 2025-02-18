@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:11:39 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/14 00:16:38 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/17 22:49:53 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,30 @@ size_t	get_file_size(char *map_file)
 	}
 	close(fd);
 	return (lines_size);
+}
+
+char	*remove_new_line(char *str)
+{
+	int		i;
+	int		size;
+	char	*line;
+
+	i = 0;
+	size = ft_strlen(str);
+	line = malloc(size * sizeof(char));
+	if (line == NULL)
+		return (NULL);
+	while (i < size - 1)
+	{
+		line[i] = str[i];
+		i++;
+	}
+	line[i] = '\0';
+	free(str);
+	return (line);
+}
+
+bool	is_empty_line(char *str)
+{
+	return (valid_charset(str, " \n") == NULL);
 }
