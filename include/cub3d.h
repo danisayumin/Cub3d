@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/17 23:28:52 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/17 23:39:57 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void				start_params(t_cub3d *cub3d);
 
 //utils
 size_t				get_file_size(char *map_file);
+void				free_map_and_texture(t_cub3d *cub3d);
 
 // utils2
 void				free_for_finish(t_cub3d *cub3d);
@@ -110,7 +111,6 @@ void				err_exit(char *str);
 void				close_err_exit(int fd, char *str);
 void				close_free_err_exit(int fd, char **arr, char *err_message);
 void				free_texture(t_cub3d *cub3d);
-void				free_map_and_texture(t_cub3d *cub3d);
 
 // map
 void				read_map(t_cub3d *cub3d, char *map_file);

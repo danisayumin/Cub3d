@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 18:31:40 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/17 23:28:49 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/17 23:39:35 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ void	close_free_err_exit(int fd, char **arr, char *err_message)
 {
 	ft_free_split(arr);
 	close_err_exit(fd, err_message);
+}
+
+void	free_map_and_texture(t_cub3d *cub3d)
+{
+	ft_free_split(cub3d->map);
+	free_texture(cub3d);
+	exit(EXIT_FAILURE);
 }

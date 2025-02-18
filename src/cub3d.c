@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:58:10 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/14 00:07:01 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/17 23:32:05 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int main(int argc, char** argv)
 
 	start_params(&cub3d);
 	read_map(&cub3d, valid_args(argc, argv));
+	normalize_map(&cub3d);
 
 }
