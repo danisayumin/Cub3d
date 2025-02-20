@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 19:58:10 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/20 00:07:19 by danielasayu      ###   ########.fr       */
+/*   Created: 2023/05/26 22:23:14 by dsayumi-          #+#    #+#             */
+/*   Updated: 2023/08/18 21:31:56 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include	"ft_printf.h"
 
-int main(int argc, char** argv)
+int	ft_putnbr(int n)
 {
-	t_cub3d	cub3d;
+	long int	i;
+	int			j;
 
-	start_params(&cub3d);
-	read_map(&cub3d, valid_args(argc, argv));
-	normalize_map(&cub3d);
-	initialize(&cub3d);
-
+	j = 1;
+	i = n;
+	if (i < 0)
+	{
+		ft_putchar('-');
+		i = -i;
+		j++;
+	}
+	if (i >= 10)
+		j += ft_putnbr(i / 10);
+	ft_putchar(i % 10 + '0');
+	return (j);
 }

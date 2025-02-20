@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_puthex_upper.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 19:58:10 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/20 00:07:19 by danielasayu      ###   ########.fr       */
+/*   Created: 2023/08/08 21:32:23 by dsayumi-          #+#    #+#             */
+/*   Updated: 2023/08/18 21:41:39 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include	"ft_printf.h"
 
-int main(int argc, char** argv)
+int	ft_puthex_upper(unsigned int n)
 {
-	t_cub3d	cub3d;
+	int	count;
 
-	start_params(&cub3d);
-	read_map(&cub3d, valid_args(argc, argv));
-	normalize_map(&cub3d);
-	initialize(&cub3d);
-
+	count = 1;
+	if (n > 15)
+		count += ft_puthex_upper(n / 16);
+	write(1, &"0123456789ABCDEF"[n % 16], 1);
+	return (count);
 }

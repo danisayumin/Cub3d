@@ -6,15 +6,15 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/17 23:39:57 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/20 00:15:10 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "libft.h"
-# include "./lib/MLX42/mlx.h"
+# include "../lib/libft/libft.h"
+# include "../lib/MLX42/mlx.h"
 # include <fcntl.h>
 # include <float.h>
 # include <limits.h>
@@ -81,15 +81,15 @@ typedef struct s_ray_calc
 
 typedef struct s_cub3d
 {
-	mlx_t			*mlx_ptr;
-	mlx_image_t		*image;
+	// mlx_t			*mlx_ptr;
+	// mlx_image_t		*image;
 	char			**map;
 	size_t			map_x;
 	size_t			map_y;
-	mlx_texture_t	*west_texture;
-	mlx_texture_t	*north_texture;
-	mlx_texture_t	*east_texture;
-	mlx_texture_t	*south_texture;
+	// mlx_texture_t	*west_texture;
+	// mlx_texture_t	*north_texture;
+	// mlx_texture_t	*east_texture;
+	// mlx_texture_t	*south_texture;
 	int64_t			floor_color;
 	int64_t			ceiling_color;
 	t_vector		player;
@@ -119,9 +119,14 @@ void				get_player_position(t_cub3d *cub3d, char *line,
 void				normalize_map(t_cub3d *cub3d);
 
 // load
-void				load_texture(t_cub3d *cub3d, mlx_texture_t **texture,
-						int fd, char **words);
+// void				load_texture(t_cub3d *cub3d, mlx_texture_t **texture,
+// 						int fd, char **words);
 void				load_color(t_cub3d *cub3d, int64_t *color, int fd,
 						char **words);
 
+//check
+// validation
+char				*valid_args(int argc, char **argv);
+void				valid_map(t_cub3d *cub3d);
+char				*valid_charset(char *str, char *set);
 #endif

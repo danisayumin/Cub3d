@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 19:58:10 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/20 00:07:19 by danielasayu      ###   ########.fr       */
+/*   Created: 2023/08/08 20:13:22 by dsayumi-          #+#    #+#             */
+/*   Updated: 2023/08/17 21:54:07 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include	"ft_printf.h"
 
-int main(int argc, char** argv)
+int	ft_putstr(char *s)
 {
-	t_cub3d	cub3d;
+	int	i;
+	int	count;
 
-	start_params(&cub3d);
-	read_map(&cub3d, valid_args(argc, argv));
-	normalize_map(&cub3d);
-	initialize(&cub3d);
-
+	if (!s)
+		return (ft_putstr("(null)"));
+	i = 0;
+	count = 0;
+	while (i < ft_strlen(s))
+	{
+		write(1, &s[i], 1);
+		i++;
+		count++;
+	}
+	return (count);
 }
