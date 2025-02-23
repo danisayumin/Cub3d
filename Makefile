@@ -43,12 +43,12 @@ $(NAME): $(OBJS) $(MLX)
 
 clean:
 	@$(MAKE) -C $(LIBTF_DIR) clean
-	@$(MAKE) -C $(GNL_DIR) clean  # Chama clean do GNL
+	@$(MAKE) -C $(GNL_DIR) clean
 	@$(RM) $(OBJS)
 
 fclean: clean
 	@$(MAKE) -C $(LIBTF_DIR) fclean
-	@$(MAKE) -C $(GNL_DIR) fclean  # Chama fclean do GNL
+	@$(MAKE) -C $(GNL_DIR) fclean
 	@$(RM) $(NAME)
 
 re: fclean all
