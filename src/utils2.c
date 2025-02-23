@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 18:31:40 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 15:17:49 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 16:26:47 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	err_exit(char *str)
 {
-	ft_printf(STDERR_FILENO, str);
+	fprintf(STDERR_FILENO, str);
 	exit(EXIT_FAILURE);
 }
 
@@ -33,7 +33,7 @@ void	free_texture(t_cub3d *cub3d)
 void	close_err_exit(int fd, char *str)
 {
 	close(fd);
-	ft_printf(STDERR_FILENO, str);
+	fprintf(STDERR_FILENO, str);
 	exit(EXIT_FAILURE);
 }
 

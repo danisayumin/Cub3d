@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:23:36 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 15:16:55 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:51:11 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ void	valid_map(t_cub3d *cub3d)
 		invalid_char = valid_charset(cub3d->map[y], VALID_CHAR_SET);
 		if (invalid_char != NULL)
 		{
-			ft_fprintf(STDERR_FILENO, "invalid char", *invalid_char);
+			fprintf(STDERR_FILENO, "invalid char", *invalid_char);
 			free_map_and_texture(cub3d);
 		}
 		get_player_position(cub3d, cub3d->map[y - 1], y - 1);
 	}
 	if (player_count != 1)
 	{
-		ft_fprintf(STDERR_FILENO, "invalid player", player_count);
+		fprintf(STDERR_FILENO, "invalid player", player_count);
 		free_map_and_texture(cub3d);
 	}
 	valid_walls(cub3d);
@@ -103,4 +103,24 @@ char	*valid_charset(char *str, char *set)
 	if (*str == '\0')
 		return (NULL);
 	return (str);
+}
+
+static void	valid_open_wall(t_cub3d *cub3d, size_t x, size_t y)
+{
+	if (cub3d->map[y][x] == '0')
+	{
+		if (x == 0 || cub3d->map[y][x + 1] == '\0')
+		{
+			ft_free_split(cub3d->map);
+			free_texture(cub3d);
+			err_exit("Invalid map");
+		}
+		if (cub3d->map[y + 1][x] == ' ' || cub3d->map[y - 1][x] == ' '
+			|| cub3d->map[y][x + 1] == ' ' || cub3d->map[y][x - 1] == ' ')
+		{
+			ft_free_split(cub3d->map);
+			free_texture(cub3d);
+			err_exit("Invalid map");
+		}
+	}
 }
