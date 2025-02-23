@@ -6,11 +6,11 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:58:10 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/17 23:32:05 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:16:40 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 int main(int argc, char** argv)
 {

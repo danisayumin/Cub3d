@@ -6,15 +6,15 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/17 23:39:57 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:27:16 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "libft.h"
-# include "./lib/MLX42/mlx.h"
+# include "../lib/libft/libft.h"
+# include "../lib/MLX42/include/MLX42/MLX42.h"
 # include <fcntl.h>
 # include <float.h>
 # include <limits.h>

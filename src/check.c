@@ -6,11 +6,11 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:23:36 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/17 23:42:52 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:16:55 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 void	valid_walls(t_cub3d *cub3d)
 {

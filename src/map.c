@@ -6,11 +6,11 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:16:10 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/17 23:36:37 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:17:35 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 void	read_map(t_cub3d *cub3d, char *map_file)
 {

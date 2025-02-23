@@ -6,11 +6,11 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:02:37 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/17 23:20:52 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:17:40 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 size_t	parse_parameters(t_cub3d *cub3d, int fd, char **map_line)
 {

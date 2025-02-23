@@ -1,44 +1,36 @@
 NAME := cub3D
-CFLAGS := #-Wextra -Wall -Werror
-CFLAGS += -g3
+CFLAGS := -g3
 
 CC := cc
 RM := rm -rf
 
 LIBTF_DIR := ./lib/libft
 LIBMLX := ./lib/MLX42
-LIBS := -L$(LIBTF_DIR) -lft 
-#$(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+LIBS := -L$(LIBTF_DIR) -lft
 
 OBJ_DIR := build
 INCLUDE_DIR := include
-INCLUDES := -I$(INCLUDE_DIR) -I$(LIBTF_DIR) 
-#-I$(LIBMLX)/include
+INCLUDES := -I$(INCLUDE_DIR) -I$(LIBTF_DIR) -I$(LIBMLX)/include
 
 SRCS := cub3d.c 
-#map.c init.c draw.c utils.c finish.c validation.c read_param.c
-#player.c load_params.c math_utils.c rays.c walls.c
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
-
-
+# Caminho para MLX42 no macOS
 PATH_MLX = ./lib/MLX42/
-MLX = $(addprefix ${PATH_MLX}, libmlx_Linux.a)
-MLX_A = -L${PATH_MLX} -lmlx_Linux -I${PATH_MLX} -lXrender -lXext -lX11 -lm -lz
+MLX = $(addprefix ${PATH_MLX}, build/libmlx42.a)
+MLX_A = -L${PATH_MLX}/build -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit
 
-
-
-
-all: libft $ $(NAME)
+all: libft mlx $(NAME)
 
 libft:
 	@$(MAKE) -C $(LIBTF_DIR)
 
-$(MLX):
-	@make --quiet -C $(PATH_MLX)
+mlx:
+	cd $(LIBMLX) && cmake -B build && make -C build
+
 
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(INCLUDES) $(MLX_A) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
@@ -46,10 +38,9 @@ $(OBJ_DIR):
 $(NAME): $(OBJS) $(MLX)
 	@$(CC) $(OBJS) $(LIBS) $(INCLUDES) $(CFLAGS) $(MLX_A) -o $(NAME)
 
-clean: 
+clean:
 	@$(MAKE) -C $(LIBTF_DIR) clean
-	make clean -C $(LIBMLX)
-	@$(RM) $(OBJS) $(OBJS_BONUS)
+	@$(RM) $(OBJS)
 
 fclean: clean
 	@$(MAKE) -C $(LIBTF_DIR) fclean
@@ -61,7 +52,6 @@ run: all
 	./$(NAME) maps/map.cub
 
 check: all
-	valgrind -q --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes --suppressions=suppress.sup ./$(NAME) maps/map.cub
+	valgrind -q --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes ./$(NAME) maps/map.cub
 
-.PHONY: all clean fclean re libft update_modules init_modules
-	./$(NAME) maps/map.cub
+.PHONY: all clean fclean re libft mlx

@@ -6,11 +6,11 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 18:31:40 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/17 23:39:35 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:17:49 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 void	err_exit(char *str)
 {

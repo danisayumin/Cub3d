@@ -6,11 +6,11 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 22:46:07 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/17 23:16:59 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:17:29 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 void	load_texture(t_cub3d *cub3d, mlx_texture_t **texture, int fd,
 		char **words)

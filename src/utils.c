@@ -6,11 +6,11 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:11:39 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/17 23:39:06 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/23 15:17:46 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../include/cub3d.h"
 
 size_t	get_file_size(char *map_file)
 {
