@@ -6,7 +6,7 @@
 /*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:58:10 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/25 19:07:09 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/02/25 20:05:08 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@ int	main(int argc, char **argv)
 	read_map(&cub3d, valid_args(argc, argv));
 	normalize_map(&cub3d);
 	valid_map(&cub3d);
-	//initialize(&cub3d);
+	initialize(&cub3d);
+	//mlx_loop(cub3d.mlx_ptr, ft_hook, &cub3d);
 }
