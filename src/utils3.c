@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 15:55:34 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 16:27:41 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/25 19:10:12 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-void free_gnl_memory(int fd)
+void	free_gnl_memory(int fd)
 {
-    static char *buffer = NULL;
+    static	char	*buffer = NULL;
 
     if (fd < 0)
         return;
-
-    // Libera o buffer estático usado pelo get_next_line
+// Libera o buffer estático usado pelo get_next_line
     if (buffer)
     {
         free(buffer);

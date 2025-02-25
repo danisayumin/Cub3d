@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:16:10 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 15:17:35 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/25 19:04:35 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,35 @@ static void	clean_lines(t_cub3d *cub3d, size_t max_width)
 		free(cub3d->map[i]);
 		cub3d->map[i] = new_line;
 		i++;
+	}
+}
+
+void	get_player_position(t_cub3d *cub3d, char *line, size_t current_y)
+{
+	char	*ptr;
+
+	ptr = valid_charset(line, NOT_PLAYER_CHAR_SET);
+	if (ptr != NULL)
+	{
+		cub3d->player.x = (double)(ptr - line) + 0.5;
+		cub3d->player.y = (double)(current_y) + 0.5;
+		if (*ptr == 'S')
+		{
+			cub3d->plane.x = -0.66;
+			cub3d->dir.y = 1;
+		}
+		else if (*ptr == 'E' || *ptr == 'W')
+		{
+			cub3d->plane.x = 0;
+			cub3d->plane.y = 0.66;
+			cub3d->dir.x = 1;
+			cub3d->dir.y = 0;
+			if (*ptr == 'W')
+				cub3d->plane.y = -0.66;
+			if (*ptr == 'E')
+				cub3d->dir.x = -1;
+		}
+		*ptr = '0';
 	}
 }
 

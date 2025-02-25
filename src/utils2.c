@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 18:31:40 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 16:26:47 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/25 18:49:19 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

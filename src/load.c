@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 22:46:07 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 15:17:29 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/25 19:09:03 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ static void	check_params_map(t_cub3d *cub3d, int fd, char *str)
 	else if (!ft_strncmp(words[0], CEILING, 2))
 		load_color(cub3d, &cub3d->ceiling_color, fd, words);
 	else
-		invalid_parameter_exit(cub3d, fd, words, "Invalid map texture or map color\n");
+		invalid_parameter_exit(cub3d, fd, words,
+			"Invalid map texture or map color\n");
 }
 
 void	load_color(t_cub3d *cub3d, int64_t *color, int fd, char **words)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:02:37 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 16:26:19 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/25 18:43:28 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

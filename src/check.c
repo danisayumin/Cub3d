@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:23:36 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/23 15:51:11 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/25 18:46:33 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	valid_map(t_cub3d *cub3d)
 			fprintf(STDERR_FILENO, "invalid char", *invalid_char);
 			free_map_and_texture(cub3d);
 		}
+		player_count += valid_player(cub3d->map[y++]);
 		get_player_position(cub3d, cub3d->map[y - 1], y - 1);
 	}
 	if (player_count != 1)
