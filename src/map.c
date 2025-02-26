@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:16:10 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/25 19:04:35 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:07:38 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,20 @@ void	get_player_position(t_cub3d *cub3d, char *line, size_t current_y)
 	}
 }
 
+static size_t	get_end_empty_lines(t_cub3d *cub3d)
+{
+	size_t	i;
+
+	i = cub3d->map_y - 1;
+	while (i > 0)
+	{
+		if (!is_empty_line(cub3d->map[i]))
+			return (cub3d->map_y - i - 1);
+		i--;
+	}
+	return (0);
+}
+
 void	normalize_map(t_cub3d *cub3d)
 {
 	size_t	max_width;
@@ -114,18 +128,4 @@ void	normalize_map(t_cub3d *cub3d)
 		free(cub3d->map[cub3d->map_y + empty_lines]);
 	free(cub3d->map);
 	cub3d->map = new_map;
-}
-
-static size_t	get_end_empty_lines(t_cub3d *cub3d)
-{
-	size_t	i;
-
-	i = cub3d->map_y - 1;
-	while (i > 0)
-	{
-		if (!is_empty_line(cub3d->map[i]))
-			return (cub3d->map_y - i - 1);
-		i--;
-	}
-	return (0);
 }

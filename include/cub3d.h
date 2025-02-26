@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/26 11:15:50 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/26 16:17:00 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,18 +103,11 @@ void				initialize(t_cub3d *cub3d);
 void				start_params(t_cub3d *cub3d);
 
 //utils
-size_t				get_file_size(char *map_file);
-void				free_map_and_texture(t_cub3d *cub3d);
-bool				is_empty_line(char *str);
-size_t				find_max_map_width(t_cub3d *cub3d);
 char				*remove_new_line(char *str);
-
-// utils2
-void				free_for_finish(t_cub3d *cub3d);
-void				err_exit(char *str);
-void				close_err_exit(int fd, char *str);
-void				close_free_err_exit(int fd, char **arr, char *err_message);
-void				free_texture(t_cub3d *cub3d);
+bool				is_empty_line(char *str);
+size_t				get_file_size(char *map_file);
+size_t				find_max_map_width(t_cub3d *cub3d);
+uint32_t			rgb_to_int(uint8_t *rgb);
 
 //utils3
 void				free_gnl_memory(int fd);
@@ -128,29 +121,46 @@ void				read_map(t_cub3d *cub3d, char *map_file);
 void				get_player_position(t_cub3d *cub3d, char *line,
 						size_t current_y);
 void				normalize_map(t_cub3d *cub3d);
-static	size_t		get_end_empty_lines(t_cub3d *cub3d);
 
 // load
 void				load_texture(t_cub3d *cub3d, mlx_texture_t **texture,
 						int fd, char **words);
 void				load_color(t_cub3d *cub3d, int64_t *color, int fd,
 						char **words);
-static	uint32_t	parse_color(char **colors, t_cub3d *cub3d, int fd,
-						char **words);
-static void			check_params_map(t_cub3d *cub3d, int fd, char *str);
+void			check_params_map(t_cub3d *cub3d, int fd, char *str);
 
 //check
 char				*valid_args(int argc, char **argv);
-char				*valid_charset(char *str, char *set);
-static void			valid_open_wall(t_cub3d *cub3d, size_t x, size_t y);
 void				valid_map(t_cub3d *cub3d);
+char				*valid_charset(char *str, char *set);
 
 //read
-static void			invalid_parameter_exit(t_cub3d *cub3d, int fd, char **words,
-						char *str);
 size_t				parse_parameters(t_cub3d *cub3d, int fd, char **map_line);
-
+static void			invalid_parameter_exit(t_cub3d *cub3d, int fd, char **words,
+		char *str);
 //player
 int					valid_player(char *line);
+void				rotate_player(t_cub3d *cub3d, double angle);
+void				move_player(t_cub3d *cub3d, double speed, int signal);
 
+//finish
+void				free_for_finish(t_cub3d *cub3d);
+void				err_exit(char *str);
+void				close_err_exit(int fd, char *str);
+void				close_free_err_exit(int fd, char **arr, char *err_message);
+void				free_texture(t_cub3d *cub3d);
+void				free_map_and_texture(t_cub3d *cub3d);
+
+//ray
+void				distance_rays(t_cub3d *cub3d);
+
+//math
+double				safe_ray_dist_calc(double ray);
+int					get_signal(double num);
+
+//draw
+void				draw_wallpaper(t_cub3d *cub3d, int32_t floor_color,
+						int32_t ceiling_color);
+void				draw_center_vertical_line(t_cub3d *cub3d,
+						t_ray_calc *ray_calc, mlx_texture_t *texture);
 #endif

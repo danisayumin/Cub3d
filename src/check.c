@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:23:36 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/25 18:46:33 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/02/26 16:05:35 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+static void	valid_open_wall(t_cub3d *cub3d, size_t x, size_t y)
+{
+	if (cub3d->map[y][x] == '0')
+	{
+		if (x == 0 || cub3d->map[y][x + 1] == '\0')
+		{
+			ft_free_split(cub3d->map);
+			free_texture(cub3d);
+			err_exit("Invalid map");
+		}
+		if (cub3d->map[y + 1][x] == ' ' || cub3d->map[y - 1][x] == ' '
+			|| cub3d->map[y][x + 1] == ' ' || cub3d->map[y][x - 1] == ' ')
+		{
+			ft_free_split(cub3d->map);
+			free_texture(cub3d);
+			err_exit("Invalid map");
+		}
+	}
+}
 
 void	valid_walls(t_cub3d *cub3d)
 {
@@ -104,24 +124,4 @@ char	*valid_charset(char *str, char *set)
 	if (*str == '\0')
 		return (NULL);
 	return (str);
-}
-
-static void	valid_open_wall(t_cub3d *cub3d, size_t x, size_t y)
-{
-	if (cub3d->map[y][x] == '0')
-	{
-		if (x == 0 || cub3d->map[y][x + 1] == '\0')
-		{
-			ft_free_split(cub3d->map);
-			free_texture(cub3d);
-			err_exit("Invalid map");
-		}
-		if (cub3d->map[y + 1][x] == ' ' || cub3d->map[y - 1][x] == ' '
-			|| cub3d->map[y][x + 1] == ' ' || cub3d->map[y][x - 1] == ' ')
-		{
-			ft_free_split(cub3d->map);
-			free_texture(cub3d);
-			err_exit("Invalid map");
-		}
-	}
 }
