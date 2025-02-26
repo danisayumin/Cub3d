@@ -13,7 +13,7 @@ OBJ_DIR := src
 INCLUDE_DIR := include
 INCLUDES := -I$(INCLUDE_DIR) -I$(LIBTF_DIR) -I$(GNL_DIR) -I$(LIBMLX)/include
 
-SRCS := cub3d.c check.c init.c load.c map.c read.c utils.c utils2.c utils3.c get_next_line.c
+SRCS := cub3d.c check.c init.c load.c map.c read.c utils.c utils2.c finish.c draw.c player.c read.c rays.c
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 # Caminho para MLX42 no macOS
