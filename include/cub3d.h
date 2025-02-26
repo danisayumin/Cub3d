@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/25 19:08:28 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:15:50 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,10 +143,14 @@ static void			check_params_map(t_cub3d *cub3d, int fd, char *str);
 char				*valid_args(int argc, char **argv);
 char				*valid_charset(char *str, char *set);
 static void			valid_open_wall(t_cub3d *cub3d, size_t x, size_t y);
+void				valid_map(t_cub3d *cub3d);
 
 //read
 static void			invalid_parameter_exit(t_cub3d *cub3d, int fd, char **words,
 						char *str);
 size_t				parse_parameters(t_cub3d *cub3d, int fd, char **map_line);
+
+//player
+int					valid_player(char *line);
 
 #endif
