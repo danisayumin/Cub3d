@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:58:10 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/26 16:03:59 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/28 19:41:47 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,6 @@ int	main(int argc, char **argv)
 	mlx_loop_hook(cub3d.mlx_ptr, ft_hook, &cub3d);
 	mlx_loop(cub3d.mlx_ptr);
 	free_for_finish(&cub3d);
-
+	mlx_terminate(cub3d.mlx_ptr);
+	return (EXIT_SUCCESS);
 }
