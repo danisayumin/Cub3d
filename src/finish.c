@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:15:48 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/26 16:11:34 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/28 19:41:24 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,11 @@ void	close_free_err_exit(int fd, char **arr, char *err_message)
 {
 	ft_free_split(arr);
 	close_err_exit(fd, err_message);
+}
+
+void	free_for_finish(t_cub3d *cub3d)
+{
+	free_texture(cub3d);
+	ft_free_split(cub3d->map);
+	mlx_delete_image(cub3d->mlx_ptr, cub3d->image);
 }
