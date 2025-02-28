@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:11:39 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/26 15:05:48 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/02/28 19:39:44 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,4 +78,11 @@ size_t	find_max_map_width(t_cub3d *cub3d)
 		i++;
 	}
 	return (max);
+}
+
+void	free_map_and_texture(t_cub3d *cub3d)
+{
+	ft_free_split(cub3d->map);
+	free_texture(cub3d);
+	exit(EXIT_FAILURE);
 }
