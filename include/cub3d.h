@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/02/26 16:17:00 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/03/01 16:06:54 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,12 +109,14 @@ size_t				get_file_size(char *map_file);
 size_t				find_max_map_width(t_cub3d *cub3d);
 uint32_t			rgb_to_int(uint8_t *rgb);
 
-//utils3
+//utils2
 void				free_gnl_memory(int fd);
 void				ft_free_split(char **arr);
 void				free_split_size(char **words, int size);
-char				**ft_split_size(const char *str, char delimiter, int *size);
-int					ft_safe_atoi(const char *str, bool *has_err);
+char				**ft_split_size(char const *s, char c, size_t *size);
+
+//ft_atoi
+int					ft_safe_atoi(const char *nptr, bool *has_err);
 
 // map
 void				read_map(t_cub3d *cub3d, char *map_file);
@@ -127,7 +129,7 @@ void				load_texture(t_cub3d *cub3d, mlx_texture_t **texture,
 						int fd, char **words);
 void				load_color(t_cub3d *cub3d, int64_t *color, int fd,
 						char **words);
-void			check_params_map(t_cub3d *cub3d, int fd, char *str);
+void				check_params_map(t_cub3d *cub3d, int fd, char *str);
 
 //check
 char				*valid_args(int argc, char **argv);
