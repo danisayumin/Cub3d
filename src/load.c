@@ -19,7 +19,7 @@ void	load_texture(t_cub3d *cub3d, mlx_texture_t **texture, int fd,
 	{
 		free_gnl_memory(fd);
 		free_texture(cub3d);
-		close_free_err_exit(fd, words, "Invalid duplicated texture\n");
+		close_free_err_exit(fd, words, "Invalid duplicated texture\n"); //revisar erros nesse arquivo
 	}
 	*texture = mlx_load_png(words[1]);
 	if (*texture == NULL)
@@ -29,32 +29,6 @@ void	load_texture(t_cub3d *cub3d, mlx_texture_t **texture, int fd,
 		close_free_err_exit(fd, words, "Invalid map texture\n");
 	}
 	ft_free_split(words);
-}
-
-void	check_params_map(t_cub3d *cub3d, int fd, char *str)
-{
-	char	**words;
-	size_t	size;
-
-	words = ft_split_size(str, ' ', &size);
-	free(str);
-	if (size != 2)
-		invalid_parameter_exit(cub3d, fd, words, "Invalid params");
-	if (!ft_strncmp(words[0], NORTH, 3))
-		load_texture(cub3d, &cub3d->north_texture, fd, words);
-	else if (!ft_strncmp(words[0], SOUTH, 3))
-		load_texture(cub3d, &cub3d->south_texture, fd, words);
-	else if (!ft_strncmp(words[0], WEST, 3))
-		load_texture(cub3d, &cub3d->west_texture, fd, words);
-	else if (!ft_strncmp(words[0], EAST, 3))
-		load_texture(cub3d, &cub3d->east_texture, fd, words);
-	else if (!ft_strncmp(words[0], FLOOR, 2))
-		load_color(cub3d, &cub3d->floor_color, fd, words);
-	else if (!ft_strncmp(words[0], CEILING, 2))
-		load_color(cub3d, &cub3d->ceiling_color, fd, words);
-	else
-		invalid_parameter_exit(cub3d, fd, words,
-			"Invalid map texture or map color\n");
 }
 
 static uint32_t	parse_color(char **colors, t_cub3d *cub3d, int fd,

@@ -43,7 +43,7 @@ void	valid_walls(t_cub3d *cub3d)
 	{
 		free_texture(cub3d);
 		ft_free_split(cub3d->map);
-		err_exit("invalid open map");
+		err_exit("invalid open map"); //revisar mensagem de erro
 	}
 	y = 1;
 	while (y < (cub3d->map_y - 1))
@@ -66,7 +66,7 @@ char	*valid_args(int argc, char **argv)
 	if (argc != 2)
 		err_exit("Invalid number of arguments\n");
 	filename_size = ft_strlen(argv[1]);
-	extension_size = ft_strlen(".cub");
+	extension_size = ft_strlen(".cub"); //revisar macro
 	if (filename_size < extension_size)
 		err_exit("Invalid filename\n");
 	while (extension_size--)
@@ -90,7 +90,7 @@ void	valid_map(t_cub3d *cub3d)
 		invalid_char = valid_charset(cub3d->map[y], VALID_CHAR_SET);
 		if (invalid_char != NULL)
 		{
-			fprintf(STDERR_FILENO, "invalid char", *invalid_char);
+			fprintf(STDERR_FILENO, "invalid char", *invalid_char); //revisar uso de função permitida neste arquivo
 			free_map_and_texture(cub3d);
 		}
 		player_count += valid_player(cub3d->map[y++]);

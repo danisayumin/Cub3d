@@ -65,7 +65,7 @@ void	rotate_player(t_cub3d *cub3d, double angle)
 	double	old_x;
 
 	old_x = cub3d->dir.x;
-	cub3d->dir.x = cub3d->dir.x * cos(angle) - cub3d->dir.y * sin(angle);
+	cub3d->dir.x = cub3d->dir.x * cos(angle) - cub3d->dir.y * sin(angle); //possível usar old_x?
 	cub3d->dir.y = old_x * sin(angle) + cub3d->dir.y * cos(angle);
 	old_x = cub3d->plane.x;
 	cub3d->plane.x = cub3d->plane.x * cos(angle) - cub3d->plane.y * sin(angle);

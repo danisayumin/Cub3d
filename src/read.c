@@ -23,7 +23,7 @@ static size_t	skip_empty_lines(t_cub3d *cub3d, int fd, char **line)
 		if (*line == NULL)
 		{
 			free_texture(cub3d);
-			close_err_exit(fd, "404: map not found");
+			close_err_exit(fd, "404: map not found"); //revisar mensagens de erro para este arquivo
 		}
 		if (!is_empty_line(*line))
 			break ;
@@ -31,6 +31,32 @@ static size_t	skip_empty_lines(t_cub3d *cub3d, int fd, char **line)
 		num++;
 	}
 	return (num);
+}
+
+void	check_params_map(t_cub3d *cub3d, int fd, char *str)
+{
+	char	**words;
+	size_t	size;
+
+	words = ft_split_size(str, ' ', &size);
+	free(str);
+	if (size != 2)
+		invalid_parameter_exit(cub3d, fd, words, "Invalid params");
+	if (!ft_strncmp(words[0], NORTH, 3))
+		load_texture(cub3d, &cub3d->north_texture, fd, words);
+	else if (!ft_strncmp(words[0], SOUTH, 3))
+		load_texture(cub3d, &cub3d->south_texture, fd, words);
+	else if (!ft_strncmp(words[0], WEST, 3))
+		load_texture(cub3d, &cub3d->west_texture, fd, words);
+	else if (!ft_strncmp(words[0], EAST, 3))
+		load_texture(cub3d, &cub3d->east_texture, fd, words);
+	else if (!ft_strncmp(words[0], FLOOR, 2))
+		load_color(cub3d, &cub3d->floor_color, fd, words);
+	else if (!ft_strncmp(words[0], CEILING, 2))
+		load_color(cub3d, &cub3d->ceiling_color, fd, words);
+	else
+		invalid_parameter_exit(cub3d, fd, words,
+			"Invalid map texture or map color\n");
 }
 
 size_t	parse_parameters(t_cub3d *cub3d, int fd, char **map_line)

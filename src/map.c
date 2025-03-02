@@ -20,7 +20,7 @@ void	read_map(t_cub3d *cub3d, char *map_file)
 
 	lines_size = get_file_size(map_file);
 	if (lines_size == 0)
-		err_exit("Empty file\n");
+		err_exit("Empty file\n"); //revisar mensagens de erro neste arquivo
 	fd = open(map_file, O_RDONLY);
 	lines_size -= parse_parameters(cub3d, fd, &line);
 	cub3d->map = malloc((lines_size + 1) * sizeof(char *));

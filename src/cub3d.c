@@ -12,8 +12,8 @@
 
 #include "../include/cub3d.h"
 
-void	draw_wallpaper(t_cub3d *cub3d, int32_t floor_color,
-		int32_t ceiling_color);
+// void	draw_wallpaper(t_cub3d *cub3d, int32_t floor_color,
+// 		int32_t ceiling_color);
 
 void	ft_hook(void *param)
 {

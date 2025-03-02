@@ -21,7 +21,7 @@ size_t	get_file_size(char *map_file)
 	lines_size = 0;
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
-		err_exit("Invalid map file\n");
+		err_exit("Invalid map file\n"); //revisar mensagem de erro
 	while (true)
 	{
 		line = get_next_line(fd);

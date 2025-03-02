@@ -13,8 +13,8 @@
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../lib/libft/libft.h"
-# include "../lib/MLX42/include/MLX42/MLX42.h"
+# include "../lib/libft/libft.h" //pode ser apenas "libft.h"
+# include "../lib/MLX42/include/MLX42/MLX42.h" //pode ser apenas <MLX42/MLX.h
 # include "../lib/get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <float.h>
@@ -45,6 +45,8 @@
 # define SOUTH "SO"
 # define FLOOR "F"
 # define CEILING "C"
+
+//definir mensagens de erro
 
 typedef struct s_vector
 {

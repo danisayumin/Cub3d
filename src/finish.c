@@ -26,14 +26,14 @@ void	free_texture(t_cub3d *cub3d)
 
 void	err_exit(char *str)
 {
-	fprintf(stderr, "%s\n", str);
+	fprintf(stderr, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
 	exit(EXIT_FAILURE);
 }
 
 void	close_err_exit(int fd, char *str)
 {
 	close(fd);
-	fprintf(stderr, "%s\n", str);
+	fprintf(stderr, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
 	exit(EXIT_FAILURE);
 }
 

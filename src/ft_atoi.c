@@ -22,13 +22,13 @@ static bool	verify_overflow(int number, int digit, int multiplyer)
 	return (false);
 }
 
-bool	ft_isspace(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
-		|| c == '\r')
-		return (1);
-	return (0);
-}
+// bool	ft_isspace(char c)
+// {
+// 	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+// 		|| c == '\r')
+// 		return (1);
+// 	return (0);
+// }
 
 int	ft_safe_atoi(const char *nptr, bool *has_err)
 {
