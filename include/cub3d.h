@@ -6,16 +6,15 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/03/01 16:06:54 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/03/03 23:31:11 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../lib/libft/libft.h" //pode ser apenas "libft.h"
-# include "../lib/MLX42/include/MLX42/MLX42.h" //pode ser apenas <MLX42/MLX.h
-# include "../lib/get_next_line/get_next_line.h"
+# include "libft.h"
+# include "MLX42/MLX42.h"
 # include <fcntl.h>
 # include <float.h>
 # include <limits.h>
@@ -140,8 +139,7 @@ char				*valid_charset(char *str, char *set);
 
 //read
 size_t				parse_parameters(t_cub3d *cub3d, int fd, char **map_line);
-static void			invalid_parameter_exit(t_cub3d *cub3d, int fd, char **words,
-		char *str);
+
 //player
 int					valid_player(char *line);
 void				rotate_player(t_cub3d *cub3d, double angle);
