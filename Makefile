@@ -19,7 +19,7 @@ INCLUDES := -I$(INCLUDE_DIR) -I$(LIBTF_DIR) -I$(LIBMLX)/include
 # INCLUDES := -I$(INCLUDE_DIR) -I$(LIBTF_DIR) -I$(GNL_DIR) -I$(LIBMLX)/include
 
 SRCS := check.c cub3d.c draw.c finish.c ft_atoi.c init.c load.c map.c math_utils.c
-SRCS += player.c rays.c read.c utils.c utils2.c
+SRCS += player.c rays.c read.c utils.c
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
 # # Caminho para MLX42 no macOS
@@ -66,10 +66,10 @@ fclean: clean
 re: fclean all
 
 run: all
-	./$(NAME) maps/map.cub
+	./$(NAME) map/cub.cub
 
 check: all
-	valgrind -q --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes --suppressions=suppress.sup ./$(NAME) maps/map.cub
+	valgrind -q --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes --suppressions=suppress.sup ./$(NAME) map/cub.cub
 # check: all
 # 	valgrind -q --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes ./$(NAME) maps/map.cub
 

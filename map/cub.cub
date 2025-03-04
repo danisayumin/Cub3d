@@ -1,8 +1,8 @@
 
-NO ./map/textures/obsidian.png
-SO ./map/textures/redstone.png
-WE ./map/textures/diamond_block.png
-EA ./map/textures/bedrock.png
+NO ./map/textures/bloca1.png
+SO ./map/textures/bloca1.png
+WE ./map/textures/bloca1.png
+EA ./map/textures/bloca1.png
 
 F 100,100,100
 
