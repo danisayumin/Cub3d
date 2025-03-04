@@ -1,49 +1,55 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/28 09:20:26 by joscarlo          #+#    #+#              #
-#    Updated: 2023/05/23 20:26:30 by joscarlo         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+vpath %.c string memory includes math char list file gnl printf
 
-NAME		= libft.a 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
-LIB			= ar -rcs
-INCS		= libft.h
-SRCS		= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
-			ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
-			ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
-			ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c \
-			ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c \
-			ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
-			ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-SRCS_BONUS	= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-			ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-			ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
-OBJS		= $(SRCS:.c=.o)
-OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
+NAME := libft.a
 
-all: 		$(NAME)
+CC := cc
+CFLAGS := -Wall -Wextra
+CFLAGS += -O3 -g3
 
-$(NAME):	$(OBJS) $(INCS)
-			$(LIB)	$(NAME) $(OBJS)
+OBJ_DIR := build
 
-bonus:		$(NAME) $(OBJS_BONUS)
-			$(LIB)	$(NAME) $(OBJS_BONUS)
+INCLUDE_DIR := includes
+INCLUDES := -I$(INCLUDE_DIR) -I.
 
-.c.o: 		
-			$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+STRING_SRC := ft_strncmp.c ft_strnstr.c ft_striteri.c ft_strjoin.c ft_strdup.c
+STRING_SRC += ft_strlcat.c ft_split.c ft_substr.c ft_strlcpy.c ft_strchr.c
+STRING_SRC += ft_itoa.c ft_strtrim.c ft_strlen.c ft_strcmp.c ft_split_size.c
+STRING_SRC += ft_strrchr.c ft_strmapi.c ft_strcpy.c ft_free_split.c
+MEMORY_SRC := ft_memcmp.c ft_memcpy.c ft_calloc.c ft_memset.c ft_bzero.c
+MEMORY_SRC += ft_memchr.c ft_memmove.c ft_intswap.c ft_pswap.c
+MATH_SRC := ft_atoi.c ft_atof.c
+CHAR_SRC := ft_isalnum.c ft_isascii.c ft_isprint.c ft_isalpha.c ft_isdigit.c
+CHAR_SRC += ft_toupper.c ft_tolower.c ft_isspace.c
+LIST_SRC := ft_lstclear.c ft_lstdelone.c ft_lstadd_front.c ft_lstnew.c
+LIST_SRC += ft_lst_to_array.c ft_lstlast.c ft_lstsize.c ft_lstiter.c
+LIST_SRC += ft_lstadd_back.c ft_lstmap.c ft_lstrm.c
+FILE_SRC := ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_putchar_fd.c
+GNL_SRC := get_next_line_utils.c get_next_line.c
+PRINT_SCR := ft_printf_putnbr.c ft_printf_flags_utils.c ft_printf_putpointer.c
+PRINT_SCR += ft_printf_putnbr_base.c ft_printf_strcpy.c ft_printf_printnbr.c
+PRINT_SCR += ft_printf_putstr.c ft_printf_atoi.c ft_printf_putchar.c ft_printf.c
+
+
+SRCS := $(STRING_SRC) $(MEMORY_SRC) $(MATH_SRC) $(CHAR_SRC) $(LIST_SRC)
+SRCS += $(FILE_SRC) $(GNL_SRC) $(PRINT_SCR)
+OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
