@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   finish.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 15:15:48 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/28 19:41:24 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/03/03 23:32:10 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ void	free_texture(t_cub3d *cub3d)
 
 void	err_exit(char *str)
 {
-	fprintf(stderr, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
+	ft_fprintf(STDERR_FILENO, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
 	exit(EXIT_FAILURE);
 }
 
 void	close_err_exit(int fd, char *str)
 {
 	close(fd);
-	fprintf(stderr, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
+	ft_fprintf(STDERR_FILENO, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
 	exit(EXIT_FAILURE);
 }
 

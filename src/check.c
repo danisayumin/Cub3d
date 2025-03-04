@@ -6,7 +6,7 @@
 /*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:23:36 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/26 16:05:35 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/03/03 23:30:45 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	valid_map(t_cub3d *cub3d)
 		invalid_char = valid_charset(cub3d->map[y], VALID_CHAR_SET);
 		if (invalid_char != NULL)
 		{
-			fprintf(STDERR_FILENO, "invalid char", *invalid_char); //revisar uso de função permitida neste arquivo
+			ft_fprintf(STDERR_FILENO, "invalid char", *invalid_char); //revisar uso de função permitida neste arquivo
 			free_map_and_texture(cub3d);
 		}
 		player_count += valid_player(cub3d->map[y++]);
@@ -98,7 +98,7 @@ void	valid_map(t_cub3d *cub3d)
 	}
 	if (player_count != 1)
 	{
-		fprintf(STDERR_FILENO, "invalid player", player_count);
+		ft_fprintf(STDERR_FILENO, "invalid player", player_count);
 		free_map_and_texture(cub3d);
 	}
 	valid_walls(cub3d);

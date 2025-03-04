@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:02:37 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/25 18:43:28 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/03/03 23:33:06 by danielasayu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
+
+static void	invalid_parameter_exit(t_cub3d *cub3d, int fd, char **words,
+		char *str)
+{
+	free_gnl_memory(fd);
+	free_texture(cub3d);
+	close_free_err_exit(fd, words, str);
+}
 
 static size_t	skip_empty_lines(t_cub3d *cub3d, int fd, char **line)
 {
@@ -85,12 +93,4 @@ size_t	parse_parameters(t_cub3d *cub3d, int fd, char **map_line)
 			break ;
 	}
 	return (read_lines + skip_empty_lines(cub3d, fd, map_line));
-}
-
-static void	invalid_parameter_exit(t_cub3d *cub3d, int fd, char **words,
-		char *str)
-{
-	free_gnl_memory(fd);
-	free_texture(cub3d);
-	close_free_err_exit(fd, words, str);
 }
