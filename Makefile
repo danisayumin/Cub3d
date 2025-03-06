@@ -18,7 +18,7 @@ INCLUDE_DIR := include
 INCLUDES := -I$(INCLUDE_DIR) -I$(LIBTF_DIR) -I$(LIBMLX)/include
 # INCLUDES := -I$(INCLUDE_DIR) -I$(LIBTF_DIR) -I$(GNL_DIR) -I$(LIBMLX)/include
 
-SRCS := check.c cub3d.c draw.c finish.c ft_atoi.c init.c load.c map.c math_utils.c
+SRCS := check.c cub3d.c draw.c finish.c init.c load.c map.c math_utils.c
 SRCS += player.c rays.c read.c utils.c
 OBJS := $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
 
@@ -69,7 +69,7 @@ run: all
 	./$(NAME) map/cub.cub
 
 check: all
-	valgrind -q --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes --suppressions=suppress.sup ./$(NAME) map/cub.cub
+	valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes --suppressions=suppress.sup ./$(NAME) map/cub.cub
 # check: all
 # 	valgrind -q --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes ./$(NAME) maps/map.cub
 

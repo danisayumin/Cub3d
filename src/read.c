@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:02:37 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/03/03 23:33:06 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/03/06 20:32:47 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t	skip_empty_lines(t_cub3d *cub3d, int fd, char **line)
 		if (*line == NULL)
 		{
 			free_texture(cub3d);
-			close_err_exit(fd, "404: map not found"); //revisar mensagens de erro para este arquivo
+			close_err_exit(fd, "Error\n404: map not found\n");
 		}
 		if (!is_empty_line(*line))
 			break ;
@@ -49,7 +49,7 @@ void	check_params_map(t_cub3d *cub3d, int fd, char *str)
 	words = ft_split_size(str, ' ', &size);
 	free(str);
 	if (size != 2)
-		invalid_parameter_exit(cub3d, fd, words, "Invalid params");
+		invalid_parameter_exit(cub3d, fd, words, "Error\nInvalid params\n");
 	if (!ft_strncmp(words[0], NORTH, 3))
 		load_texture(cub3d, &cub3d->north_texture, fd, words);
 	else if (!ft_strncmp(words[0], SOUTH, 3))
@@ -64,7 +64,7 @@ void	check_params_map(t_cub3d *cub3d, int fd, char *str)
 		load_color(cub3d, &cub3d->ceiling_color, fd, words);
 	else
 		invalid_parameter_exit(cub3d, fd, words,
-			"Invalid map texture or map color\n");
+			"Error\nInvalid map texture or map color\n");
 }
 
 size_t	parse_parameters(t_cub3d *cub3d, int fd, char **map_line)
@@ -79,7 +79,7 @@ size_t	parse_parameters(t_cub3d *cub3d, int fd, char **map_line)
 		if (line == NULL)
 		{
 			free_texture(cub3d);
-			close_err_exit(fd, "Missing parameters\n");
+			close_err_exit(fd, "Error\nMissing parameters\n");
 		}
 		read_lines++;
 		line = remove_new_line(line);

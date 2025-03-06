@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 22:46:07 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/26 16:16:53 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/03/06 20:29:55 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ void	load_texture(t_cub3d *cub3d, mlx_texture_t **texture, int fd,
 	{
 		free_gnl_memory(fd);
 		free_texture(cub3d);
-		close_free_err_exit(fd, words, "Invalid duplicated texture\n"); //revisar erros nesse arquivo
+		close_free_err_exit(fd, words, "Error\nInvalid duplicated texture\n");
 	}
 	*texture = mlx_load_png(words[1]);
 	if (*texture == NULL)
 	{
 		free_gnl_memory(fd);
 		free_texture(cub3d);
-		close_free_err_exit(fd, words, "Invalid map texture\n");
+		close_free_err_exit(fd, words, "Error\nInvalid map texture\n");
 	}
 	ft_free_split(words);
 }
@@ -49,7 +49,7 @@ static uint32_t	parse_color(char **colors, t_cub3d *cub3d, int fd,
 			ft_free_split(colors);
 			free_texture(cub3d);
 			free_gnl_memory(fd);
-			close_free_err_exit(fd, words, "Invalid color\n");
+			close_free_err_exit(fd, words, "Error\nInvalid color\n");
 		}
 		color = (color << 8) | current_color;
 		i++;
@@ -68,7 +68,7 @@ void	load_color(t_cub3d *cub3d, int64_t *color, int fd, char **words)
 	{
 		free_texture(cub3d);
 		free_gnl_memory(fd);
-		close_free_err_exit(fd, words, "Invalid duplicated color\n");
+		close_free_err_exit(fd, words, "Error\nInvalid duplicated color\n");
 	}
 	colors = ft_split_size(words[1], ',', &size);
 	if (size != 3)
@@ -76,7 +76,7 @@ void	load_color(t_cub3d *cub3d, int64_t *color, int fd, char **words)
 		ft_free_split(colors);
 		free_texture(cub3d);
 		free_gnl_memory(fd);
-		close_free_err_exit(fd, words, "Invalid color\n");
+		close_free_err_exit(fd, words, "Error\nInvalid color\n");
 	}
 	*color = parse_color(colors, cub3d, fd, words);
 	ft_free_split(colors);

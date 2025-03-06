@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   finish.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 15:15:48 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/03/03 23:32:10 by danielasayu      ###   ########.fr       */
+/*   Created: 2024/01/27 11:31:25 by dsayumi-          #+#    #+#             */
+/*   Updated: 2025/03/06 17:12:09 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "cub3d.h"
 
 void	free_texture(t_cub3d *cub3d)
 {
@@ -26,14 +26,14 @@ void	free_texture(t_cub3d *cub3d)
 
 void	err_exit(char *str)
 {
-	ft_fprintf(STDERR_FILENO, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
+	ft_fprintf(STDERR_FILENO, str);
 	exit(EXIT_FAILURE);
 }
 
 void	close_err_exit(int fd, char *str)
 {
 	close(fd);
-	ft_fprintf(STDERR_FILENO, "%s\n", str); //primeiro parâmetro pode ser STDERR_FILENO
+	ft_fprintf(STDERR_FILENO, str);
 	exit(EXIT_FAILURE);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:16:10 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/26 16:07:38 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/03/06 20:30:10 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	read_map(t_cub3d *cub3d, char *map_file)
 
 	lines_size = get_file_size(map_file);
 	if (lines_size == 0)
-		err_exit("Empty file\n"); //revisar mensagens de erro neste arquivo
+		err_exit("Error\nEmpty file\n");
 	fd = open(map_file, O_RDONLY);
 	lines_size -= parse_parameters(cub3d, fd, &line);
 	cub3d->map = malloc((lines_size + 1) * sizeof(char *));
 	if (cub3d->map == NULL)
-		err_exit("Malloc error\n");
+		err_exit("Error\nMalloc error\n");
 	cub3d->map[lines_size] = NULL;
 	cub3d->map_y = lines_size;
 	lines_size = 0;
@@ -53,7 +53,7 @@ static void	clean_lines(t_cub3d *cub3d, size_t max_width)
 			j++;
 		new_line = malloc((max_width + 1) * sizeof(char));
 		if (new_line == NULL)
-			err_exit("invalid malloc");
+			err_exit("Error\nMalloc error\n");
 		new_line[max_width] = '\0';
 		ft_memset(new_line, ' ', max_width);
 		ft_memcpy(new_line, cub3d->map[i], j);
@@ -121,7 +121,7 @@ void	normalize_map(t_cub3d *cub3d)
 	cub3d->map_y -= empty_lines;
 	new_map = malloc((cub3d->map_y + 1) * sizeof(char *));
 	if (new_map == NULL)
-		err_exit("invalid malloc");
+		err_exit("Error\nMalloc error\n");
 	new_map[cub3d->map_y] = NULL;
 	ft_memcpy(new_map, cub3d->map, cub3d->map_y * sizeof(char *));
 	while (empty_lines--)
