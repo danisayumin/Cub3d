@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:11:39 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/02/28 19:39:44 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/03/06 20:32:55 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	get_file_size(char *map_file)
 	lines_size = 0;
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
-		err_exit("Invalid map file\n"); //revisar mensagem de erro
+		err_exit("Error\nInvalid map file\n");
 	while (true)
 	{
 		line = get_next_line(fd);
