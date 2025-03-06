@@ -1,8 +1,8 @@
 
-NO ./map/textures/bloca1.png
-SO ./map/textures/bloca1.png
-WE ./map/textures/bloca1.png
-EA ./map/textures/bloca1.png
+NO ./map/textures/blocka.png
+SO ./map/textures/stan.png
+WE ./map/textures/tilersons.png
+EA ./map/textures/woody.png
 
 F 100,100,100
 
