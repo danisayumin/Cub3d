@@ -6,7 +6,7 @@
 /*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 23:23:36 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/03/06 20:25:28 by dsayumi-         ###   ########.fr       */
+/*   Updated: 2025/03/06 21:17:28 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*valid_args(int argc, char **argv)
 		err_exit("Error\nInvalid filename\n");
 	while (extension_size--)
 	{
-		if (argv[1][--filename_size] != FILE_EXTENSION[extension_size])
+		if (argv[1][--filename_size] != ".cub"[extension_size])
 			err_exit("Error\nInvalid filename\n");
 	}
 	return (argv[1]);

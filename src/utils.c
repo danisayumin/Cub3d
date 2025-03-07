@@ -6,13 +6,13 @@
 /*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:11:39 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/03/06 20:32:55 by dsayumi-         ###   ########.fr       */
+/*   Updated: 2025/03/06 21:27:49 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 
-size_t	get_file_size(char *map_file) 
+size_t	get_file_size(char *map_file)
 {
 	char	*line;
 	int		fd;
