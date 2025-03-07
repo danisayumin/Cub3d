@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/03/06 21:15:02 by joscarlo         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:21:43 by dsayumi-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define PLAYER_ROTATE_SPEED 0.06
 # define WALL_OFFSET 0.3
 
-# define GAME_NAME "Cubiculo"
+# define GAME_NAME "Cubersons"
 # define VALID_CHAR_SET "01NSEW\n "
 # define NOT_PLAYER_CHAR_SET "01 "
 # define VALID_CHAR_SET_PLAYER "NSEW"
