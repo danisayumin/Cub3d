@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danielasayuminitta <danielasayuminitta@    +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 20:06:52 by dsayumi-          #+#    #+#             */
-/*   Updated: 2025/03/03 23:31:11 by danielasayu      ###   ########.fr       */
+/*   Updated: 2025/03/06 21:15:02 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
 # define NOT_PLAYER_CHAR_SET "01 "
 # define VALID_CHAR_SET_PLAYER "NSEW"
 # define VALID_WALLS_CHAR_SET "1 "
-# define FILE_EXTENSION ".cub"
 
 # define WEST "WE"
 # define NORTH "NO"
@@ -44,8 +43,6 @@
 # define SOUTH "SO"
 # define FLOOR "F"
 # define CEILING "C"
-
-//definir mensagens de erro
 
 typedef struct s_vector
 {

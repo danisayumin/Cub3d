@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dsayumi- <dsayumi-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joscarlo <joscarlo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:16:10 by danielasayu       #+#    #+#             */
-/*   Updated: 2025/03/06 20:30:10 by dsayumi-         ###   ########.fr       */
+/*   Updated: 2025/03/06 21:15:27 by joscarlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	get_player_position(t_cub3d *cub3d, char *line, size_t current_y)
 			cub3d->dir.y = 0;
 			if (*ptr == 'W')
 				cub3d->plane.y = -0.66;
-			if (*ptr == 'E')
+			if (*ptr == 'W')
 				cub3d->dir.x = -1;
 		}
 		*ptr = '0';
